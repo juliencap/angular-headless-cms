@@ -1,0 +1,5 @@
+<ul>
+  @for (article of actualites; track article.id) {
+    <li [innerHTML]="article.title.rendered"></li>
+  }
+</ul>

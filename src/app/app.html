@@ -1,9 +1,2 @@
-<h1>Actualités</h1>
-
-<ul>
-  @for (article of actualites; track article.id) {
-    <li>{{ article.title.rendered }}</li>
-  }
-</ul>
-
+<app-actualite-list />
 <router-outlet />
