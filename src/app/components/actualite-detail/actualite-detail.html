@@ -1,0 +1,8 @@
+@if (actualite) {
+  <article>
+    <h1 [innerHTML]="actualite.title.rendered"></h1>
+    <div [innerHTML]="actualite.content.rendered"></div>
+  </article>
+} @else {
+  <p>Chargement...</p>
+}

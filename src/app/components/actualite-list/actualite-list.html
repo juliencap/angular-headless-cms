@@ -1,5 +1,7 @@
 <ul>
   @for (article of actualites; track article.id) {
-    <li [innerHTML]="article.title.rendered"></li>
+    <li>
+      <a [routerLink]="['/actualite', article.slug]" [innerHTML]="article.title.rendered"></a>
+    </li>
   }
 </ul>

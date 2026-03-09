@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { WordpressService } from '../../services/wordpress';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-actualite-list',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './actualite-list.html',
-  styleUrl: './actualite-list.scss'
+  styleUrl: './actualite-list.scss',
 })
 export class ActualiteList implements OnInit {
   actualites: any[] = [];
@@ -15,8 +16,8 @@ export class ActualiteList implements OnInit {
 
   ngOnInit() {
     this.wpService.getActualites(10).subscribe({
-      next: (data) => this.actualites = data,
-      error: (err) => console.error('Erreur API :', err)
+      next: (data) => (this.actualites = data),
+      error: (err) => console.error('Erreur API :', err),
     });
   }
 }

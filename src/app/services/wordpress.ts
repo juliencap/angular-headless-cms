@@ -4,15 +4,18 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WordpressService {
-
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   getActualites(perPage: number = 10): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/actualite?per_page=${perPage}`);
+  }
+
+  getActualiteBySlug(slug: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/actualite?slug=${slug}`);
   }
 }
