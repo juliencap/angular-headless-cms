@@ -19,8 +19,10 @@ export class CalendrierComponent implements OnInit {
   ngOnInit() {
     this.wpService.getCalendriers().subscribe({
       next: (data) => {
-        this.calendriers = [...data].reverse(); // du plus récent au plus ancien
-        this.calendrierActif = this.calendriers[0]; // saison la plus récente par défaut
+        console.log('data reçue', data.length, data[0]);
+        this.calendriers = [...data].reverse();
+        this.calendrierActif = this.calendriers[0];
+        console.log('calendrierActif', this.calendrierActif?.id);
       },
       error: (err) => console.error('Erreur API :', err),
     });
