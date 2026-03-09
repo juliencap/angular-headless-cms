@@ -1,7 +1,10 @@
-<ul>
-  @for (article of actualites; track article.id) {
-    <li>
-      <a [routerLink]="['/actualite', article.slug]" [innerHTML]="article.title.rendered"></a>
-    </li>
-  }
-</ul>
+<div class="actualite-list">
+  <h1>Actualités</h1>
+  <ul>
+    @for (article of actualites; track article.id) {
+      <li class="article-card">
+        <a [routerLink]="['/actualite', article.slug]" [innerHTML]="article.title.rendered"></a>
+      </li>
+    }
+  </ul>
+</div>

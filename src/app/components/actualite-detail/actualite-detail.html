@@ -1,10 +1,12 @@
-<a [routerLink]="['/']">← Retour aux actualités</a>
+<div class="actualite-detail">
+  <a class="back-link" [routerLink]="['/']">← Retour aux actualités</a>
 
-@if (actualite) {
-  <article>
-    <h1 [innerHTML]="actualite.title.rendered"></h1>
-    <div [innerHTML]="actualite.content.rendered"></div>
-  </article>
-} @else {
-  <p>Chargement...</p>
-}
+  @if (actualite) {
+    <article>
+      <h1 [innerHTML]="actualite.title.rendered"></h1>
+      <div class="content" [innerHTML]="actualite.content.rendered"></div>
+    </article>
+  } @else {
+    <p>Chargement...</p>
+  }
+</div>
