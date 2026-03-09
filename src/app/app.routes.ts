@@ -5,6 +5,6 @@ import { CalendrierComponent } from './components/calendrier/calendrier';
 
 export const routes: Routes = [
   { path: '', component: ActualiteList },
-  { path: 'actualite/:slug', component: ActualiteDetail },
+  { path: 'Actualites/:idslug', component: ActualiteDetail },
   { path: 'calendrier', component: CalendrierComponent },
 ];

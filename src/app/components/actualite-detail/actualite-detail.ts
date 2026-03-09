@@ -19,10 +19,11 @@ export class ActualiteDetail implements OnInit {
   ) {}
 
   ngOnInit() {
-    const slug = this.route.snapshot.paramMap.get('slug');
-    if (slug) {
-      this.wpService.getActualiteBySlug(slug).subscribe({
-        next: (data) => (this.actualite = data[0]),
+    const idslug = this.route.snapshot.paramMap.get('idslug');
+    if (idslug) {
+      const id = idslug.split('-')[0];
+      this.wpService.getActualiteById(id).subscribe({
+        next: (data) => (this.actualite = data),
         error: (err) => console.error('Erreur API :', err),
       });
     }

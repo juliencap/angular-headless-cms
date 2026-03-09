@@ -17,8 +17,14 @@ export class WordpressService {
     return this.http.get<Actualite[]>(`${this.apiUrl}/actualite?per_page=${perPage}`);
   }
 
+  //old method
   getActualiteBySlug(slug: string): Observable<Actualite[]> {
     return this.http.get<Actualite[]>(`${this.apiUrl}/actualite?slug=${slug}`);
+  }
+
+  //prod method
+  getActualiteById(id: string): Observable<Actualite> {
+    return this.http.get<Actualite>(`${this.apiUrl}/actualite/${id}`);
   }
 
   getCalendriers(): Observable<Calendrier[]> {
