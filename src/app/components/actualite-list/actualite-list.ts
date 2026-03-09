@@ -20,7 +20,10 @@ export class ActualiteList implements OnInit {
 
   ngOnInit() {
     this.wpService.getActualites(10).subscribe({
-      next: (data) => (this.actualites = data),
+      next: (data) => {
+        this.actualites = data;
+        this.cdr.detectChanges(); // force la mise à jour du DOM
+      },
       error: (err) => console.error('Erreur API :', err),
     });
   }
