@@ -3,7 +3,7 @@
   @if (actualite) {
     <div class="page-card">
       <h1 [innerHTML]="actualite.title.rendered"></h1>
-      <div class="content" [innerHTML]="actualite.content.rendered"></div>
+      <div class="content" [innerHTML]="safeContent"></div>
     </div>
   } @else {
     <p>Chargement...</p>
