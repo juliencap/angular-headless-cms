@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { WordpressService } from '../../services/wordpress';
 import { Calendrier } from '../../interfaces/calendrier.interface';
 import { SlicePipe } from '@angular/common';
@@ -14,7 +14,10 @@ export class CalendrierComponent implements OnInit {
   calendriers: Calendrier[] = [];
   calendrierActif: Calendrier | null = null;
 
-  constructor(private wpService: WordpressService) {}
+  constructor(
+    private wpService: WordpressService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit() {
     this.wpService.getCalendriers().subscribe({
@@ -22,6 +25,7 @@ export class CalendrierComponent implements OnInit {
         console.log('data reçue', data.length, data[0]);
         this.calendriers = [...data].reverse();
         this.calendrierActif = this.calendriers[0];
+        this.cdr.detectChanges(); // force la mise à jour du DOM
         console.log('calendrierActif', this.calendrierActif?.id);
       },
       error: (err) => console.error('Erreur API :', err),
