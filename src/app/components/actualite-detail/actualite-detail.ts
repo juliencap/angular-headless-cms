@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WordpressService } from '../../services/wordpress';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-actualite-detail',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './actualite-detail.html',
   styleUrl: './actualite-detail.scss',
 })
