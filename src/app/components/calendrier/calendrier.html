@@ -1,0 +1,17 @@
+<div class="page-container">
+  <h1>Calendrier des Girondins</h1>
+  <div class="saison-selector">
+    <select (change)="onSaisonChange($event)">
+      @for (calendrier of calendriers; track calendrier.id) {
+        <option [value]="calendrier.id">Saison {{ calendrier.title.rendered | slice: 37 }}</option>
+      }
+    </select>
+  </div>
+  @if (calendrierActif) {
+    <div class="page-card calendrier-content">
+      <div [innerHTML]="calendrierActif.acf.content_group.contenu"></div>
+    </div>
+  } @else {
+    <p>Chargement...</p>
+  }
+</div>

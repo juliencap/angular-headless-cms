@@ -1,11 +1,10 @@
-<div class="actualite-detail">
+<div class="page-container">
   <a class="back-link" [routerLink]="['/']">← Retour aux actualités</a>
-
   @if (actualite) {
-    <article>
+    <div class="page-card">
       <h1 [innerHTML]="actualite.title.rendered"></h1>
       <div class="content" [innerHTML]="actualite.content.rendered"></div>
-    </article>
+    </div>
   } @else {
     <p>Chargement...</p>
   }

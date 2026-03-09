@@ -24,4 +24,14 @@
     font-weight: 600;
     letter-spacing: 0.5px;
   }
+
+  .navbar-link {
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin-left: auto;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
 }

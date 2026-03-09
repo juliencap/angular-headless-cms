@@ -1,0 +1,118 @@
+.calendrier {
+  h1 {
+    color: var(--color-accent);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--color-accent);
+    padding-bottom: 0.5rem;
+  }
+
+  .saison-selector {
+    margin-bottom: 1.5rem;
+
+    select {
+      width: 100%;
+      max-width: 300px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: 2px solid var(--color-accent);
+      border-radius: var(--border-radius);
+      color: var(--color-text);
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+      }
+    }
+  }
+
+  :host ::ng-deep .calendrier-content {
+    background: var(--color-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    overflow-x: auto; // scroll horizontal sur mobile
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+
+      th {
+        background-color: var(--color-accent);
+        color: white;
+        padding: 0.75rem;
+        text-align: left;
+        white-space: nowrap;
+
+        &:nth-child(1) {
+          width: 130px;
+        } // Date
+        &:nth-child(2) {
+          width: 150px;
+        } // Compétition
+        &:nth-child(3) {
+          width: 80px;
+        } // Phase
+        &:nth-child(4) {
+          width: auto;
+        } // Match
+        &:nth-child(5) {
+          width: 70px;
+        } // Score
+      }
+
+      td {
+        padding: 0.6rem 0.75rem;
+        border-bottom: 1px solid var(--color-border);
+        white-space: nowrap;
+      }
+
+      tr:nth-child(odd) td {
+        background-color: #f8f9fc;
+      }
+
+      tr:nth-child(even) td {
+        background-color: var(--color-secondary);
+      }
+
+      tr:hover td {
+        background-color: #e8edf8;
+      }
+    }
+  }
+}
+
+// Mobile
+@media (max-width: 600px) {
+  .calendrier {
+    padding: 1rem 0.5rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .saison-selector select {
+      max-width: 100%;
+    }
+
+    .calendrier-content {
+      padding: 0.75rem;
+    }
+  }
+}
+
+:host ::ng-deep .calendrier-content {
+  table.is-striped {
+    tbody tr:nth-child(odd) td {
+      background-color: #f8f9fc !important;
+    }
+    tbody tr:nth-child(even) td {
+      background-color: var(--color-secondary) !important;
+    }
+    tbody tr:hover td {
+      background-color: #e8edf8 !important;
+    }
+  }
+}
