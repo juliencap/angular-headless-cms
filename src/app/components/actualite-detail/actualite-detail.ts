@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { WordpressService } from '../../services/wordpress';
-import { RouterLink } from '@angular/router';
+import { Actualite } from '../../interfaces/actualite.interface';
 
 @Component({
   selector: 'app-actualite-detail',
@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './actualite-detail.scss',
 })
 export class ActualiteDetail implements OnInit {
-  actualite: any = null;
+  actualite: Actualite | null = null;
 
   constructor(
     private route: ActivatedRoute,

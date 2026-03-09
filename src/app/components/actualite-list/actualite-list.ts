@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WordpressService } from '../../services/wordpress';
 import { RouterLink } from '@angular/router';
+import { WordpressService } from '../../services/wordpress';
+import { Actualite } from '../../interfaces/actualite.interface';
 
 @Component({
   selector: 'app-actualite-list',
@@ -10,7 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './actualite-list.scss',
 })
 export class ActualiteList implements OnInit {
-  actualites: any[] = [];
+  actualites: Actualite[] = [];
 
   constructor(private wpService: WordpressService) {}
 
