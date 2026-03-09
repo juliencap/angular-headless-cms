@@ -22,11 +22,9 @@ export class CalendrierComponent implements OnInit {
   ngOnInit() {
     this.wpService.getCalendriers().subscribe({
       next: (data) => {
-        console.log('data reçue', data.length, data[0]);
         this.calendriers = [...data].reverse();
         this.calendrierActif = this.calendriers[0];
         this.cdr.detectChanges(); // force la mise à jour du DOM
-        console.log('calendrierActif', this.calendrierActif?.id);
       },
       error: (err) => console.error('Erreur API :', err),
     });

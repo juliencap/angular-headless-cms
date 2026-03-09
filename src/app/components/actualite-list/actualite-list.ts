@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { WordpressService } from '../../services/wordpress';
 import { Actualite } from '../../interfaces/actualite.interface';
@@ -13,7 +13,10 @@ import { Actualite } from '../../interfaces/actualite.interface';
 export class ActualiteList implements OnInit {
   actualites: Actualite[] = [];
 
-  constructor(private wpService: WordpressService) {}
+  constructor(
+    private wpService: WordpressService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit() {
     this.wpService.getActualites(10).subscribe({
