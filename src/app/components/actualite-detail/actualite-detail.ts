@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { WordpressService } from '../../services/wordpress';
@@ -19,6 +19,7 @@ export class ActualiteDetail implements OnInit {
     private route: ActivatedRoute,
     private wpService: WordpressService,
     private sanitizer: DomSanitizer,
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
@@ -30,6 +31,7 @@ export class ActualiteDetail implements OnInit {
           this.actualite = data;
           this.safeContent = this.sanitizer.bypassSecurityTrustHtml(data.content.rendered);
           this.loadTwitterScript();
+          this.cdr.detectChanges(); // force la mise à jour du DOM
         },
         error: (err) => console.error('Erreur API :', err),
       });
