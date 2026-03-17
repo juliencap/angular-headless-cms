@@ -3,11 +3,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { WordpressService } from '../../services/wordpress';
 import { Actualite } from '../../interfaces/actualite.interface';
+import { FormatDatePipe } from '../../pipes/format-date.pipe';
 
 @Component({
   selector: 'app-actualite-detail',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FormatDatePipe],
   templateUrl: './actualite-detail.html',
   styleUrl: './actualite-detail.scss',
 })

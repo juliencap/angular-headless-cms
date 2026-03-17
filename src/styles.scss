@@ -88,3 +88,19 @@ a {
     }
   }
 }
+
+// Date display (used with formatDate pipe)
+.article-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.3rem 0 1rem;
+}
+
+//img
+.article-image {
+  width: 100%;
+  display: block;
+  margin-bottom: 0.75rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}

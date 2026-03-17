@@ -23,10 +23,21 @@
     <ul>
       @for (article of actualites(); track article.id) {
         <li class="article-card">
-          <a
-            [routerLink]="['/Actualites', article.id + '-' + article.slug]"
-            [innerHTML]="article.title.rendered"
-          ></a>
+          <a [routerLink]="['/Actualites', article.id + '-' + article.slug]" class="article-link">
+            @if (article.yoast_head_json?.og_image?.length) {
+              <img
+                [src]="article.yoast_head_json?.og_image?.[0]?.url"
+                [attr.alt]="article.title.rendered"
+                class="article-image"
+              />
+            }
+
+            <p class="article-date">
+              {{ article.date | formatDate: 'short' }}
+            </p>
+
+            <h2 [innerHTML]="article.title.rendered"></h2>
+          </a>
         </li>
       }
     </ul>
@@ -34,7 +45,7 @@
     <div class="pagination">
       <button (click)="previousPage()" [disabled]="page() === 1">← Précédent</button>
 
-      <span>Page {{ page() }} / {{ totalPages() }}</span>
+      <span>Page {{ page() }}</span>
 
       <button (click)="nextPage()" [disabled]="page() >= totalPages()">Suivant →</button>
     </div>

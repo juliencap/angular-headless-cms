@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { WordpressService } from '../../services/wordpress';
 import { Actualite } from '../../interfaces/actualite.interface';
 import { Subject, debounceTime, switchMap } from 'rxjs';
+import { FormatDatePipe } from '../../pipes/format-date.pipe';
 
 @Component({
   selector: 'app-actualite-list',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FormatDatePipe],
   templateUrl: './actualite-list.html',
   styleUrl: './actualite-list.scss',
 })

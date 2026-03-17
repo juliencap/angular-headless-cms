@@ -3,6 +3,16 @@
   @if (actualite) {
     <div class="page-card">
       <h1 [innerHTML]="actualite.title.rendered"></h1>
+      @if (actualite.yoast_head_json?.og_image?.length) {
+        <img
+          [src]="actualite.yoast_head_json?.og_image?.[0]?.url"
+          [attr.alt]="actualite.title.rendered"
+          class="article-image"
+        />
+      }
+      <p class="article-date">
+        {{ actualite.date | formatDate: 'full' }}
+      </p>
       <div class="content" [innerHTML]="safeContent"></div>
     </div>
   } @else {

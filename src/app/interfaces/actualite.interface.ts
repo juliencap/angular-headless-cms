@@ -13,4 +13,12 @@ export interface Actualite {
   };
   featured_media: number;
   categories: number[];
+  yoast_head_json?: {
+    og_image?: Array<{
+      url: string;
+      width?: number;
+      height?: number;
+      type?: string;
+    }>;
+  };
 }
