@@ -16,7 +16,15 @@
   </div>
 
   @if (loading()) {
-    <p class="loading-message">Chargement des actualités...</p>
+    <ul class="skeleton-list">
+      @for (item of [1, 2, 3, 4, 5]; track item) {
+        <li class="article-card skeleton-card">
+          <div class="skeleton skeleton-image"></div>
+          <div class="skeleton skeleton-date"></div>
+          <div class="skeleton skeleton-title"></div>
+        </li>
+      }
+    </ul>
   } @else if (actualites().length === 0) {
     <p class="empty-message">Aucune actualité disponible.</p>
   } @else {
@@ -29,6 +37,7 @@
                 [src]="article.yoast_head_json?.og_image?.[0]?.url"
                 [attr.alt]="article.title.rendered"
                 class="article-image"
+                loading="lazy"
               />
             }
 
@@ -44,9 +53,7 @@
 
     <div class="pagination">
       <button (click)="previousPage()" [disabled]="page() === 1">← Précédent</button>
-
       <span>Page {{ page() }}</span>
-
       <button (click)="nextPage()" [disabled]="page() >= totalPages()">Suivant →</button>
     </div>
   }
