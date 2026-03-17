@@ -1,5 +1,26 @@
-.loading-message,
-.empty-message {
-  margin-top: 1rem;
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.6rem;
+  padding-right: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.clear-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
   font-size: 1rem;
+  color: #666;
 }

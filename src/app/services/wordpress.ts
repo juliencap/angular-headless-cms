@@ -13,8 +13,14 @@ export class WordpressService {
 
   constructor(private http: HttpClient) {}
 
-  getActualites(perPage: number = 10): Observable<Actualite[]> {
-    return this.http.get<Actualite[]>(`${this.apiUrl}/actualite?per_page=${perPage}`);
+  getActualites(limit: number, search?: string) {
+    let url = `${this.apiUrl}/actualite?per_page=${limit}`;
+
+    if (search && search.trim()) {
+      url += `&search=${encodeURIComponent(search.trim())}`;
+    }
+
+    return this.http.get<Actualite[]>(url);
   }
 
   //old method
