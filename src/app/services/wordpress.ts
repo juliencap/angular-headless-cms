@@ -13,14 +13,14 @@ export class WordpressService {
 
   constructor(private http: HttpClient) {}
 
-  getActualites(limit: number, search?: string) {
-    let url = `${this.apiUrl}/actualite?per_page=${limit}`;
+  getActualites(limit: number = 10, search?: string, page: number = 1) {
+    let url = `${this.apiUrl}/actualite?per_page=${limit}&page=${page}`;
 
     if (search && search.trim()) {
       url += `&search=${encodeURIComponent(search.trim())}`;
     }
 
-    return this.http.get<Actualite[]>(url);
+    return this.http.get<Actualite[]>(url, { observe: 'response' });
   }
 
   //old method
