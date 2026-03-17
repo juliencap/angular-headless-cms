@@ -1,13 +1,20 @@
 <div class="page-container content-list">
   <h1>Actualités</h1>
-  <ul>
-    @for (article of actualites; track article.id) {
-      <li class="article-card">
-        <a
-          [routerLink]="['/Actualites', article.id + '-' + article.slug]"
-          [innerHTML]="article.title.rendered"
-        ></a>
-      </li>
-    }
-  </ul>
+
+  @if (loading()) {
+    <p class="loading-message">Chargement des actualités...</p>
+  } @else if (actualites().length === 0) {
+    <p class="empty-message">Aucune actualité disponible.</p>
+  } @else {
+    <ul>
+      @for (article of actualites(); track article.id) {
+        <li class="article-card">
+          <a
+            [routerLink]="['/Actualites', article.id + '-' + article.slug]"
+            [innerHTML]="article.title.rendered"
+          ></a>
+        </li>
+      }
+    </ul>
+  }
 </div>

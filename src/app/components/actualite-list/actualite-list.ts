@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { WordpressService } from '../../services/wordpress';
 import { Actualite } from '../../interfaces/actualite.interface';
@@ -11,20 +11,20 @@ import { Actualite } from '../../interfaces/actualite.interface';
   styleUrl: './actualite-list.scss',
 })
 export class ActualiteList implements OnInit {
-  actualites: Actualite[] = [];
+  readonly actualites = signal<Actualite[]>([]);
+  readonly loading = signal(true);
 
-  constructor(
-    private wpService: WordpressService,
-    private cdr: ChangeDetectorRef,
-  ) {}
+  constructor(private wpService: WordpressService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.wpService.getActualites(10).subscribe({
       next: (data) => {
-        this.actualites = data;
-        this.cdr.detectChanges(); // force la mise à jour du DOM
+        this.actualites.set(data);
+        this.loading.set(false);
       },
-      error: (err) => console.error('Erreur API :', err),
+      error: () => {
+        this.loading.set(false);
+      },
     });
   }
 }
