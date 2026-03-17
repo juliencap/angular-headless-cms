@@ -1,0 +1,24 @@
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin: 1rem;
+  padding: 0.875rem 1rem;
+
+  border: 1px solid #f5c2c7;
+  border-radius: 8px;
+
+  background-color: #f8d7da;
+  color: #842029;
+
+  button {
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    padding: 0.4rem 0.75rem;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,7 @@
+@if (errorService.error()) {
+  <div class="error-banner" role="alert" aria-live="polite">
+    <span>{{ errorService.error() }}</span>
+
+    <button type="button" (click)="close()">Fermer</button>
+  </div>
+}
