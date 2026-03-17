@@ -19,18 +19,18 @@ export class CalendrierComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.wpService.getCalendriers().subscribe({
       next: (data) => {
         this.calendriers = [...data].reverse();
         this.calendrierActif = this.calendriers[0];
-        this.cdr.detectChanges(); // force la mise à jour du DOM
+        this.cdr.detectChanges();
       },
       error: (err) => console.error('Erreur API :', err),
     });
   }
 
-  onSaisonChange(event: Event) {
+  onSaisonChange(event: Event): void {
     const id = Number((event.target as HTMLSelectElement).value);
     this.calendrierActif = this.calendriers.find((c) => c.id === id) || null;
   }

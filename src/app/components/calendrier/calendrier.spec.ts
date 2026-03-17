@@ -1,19 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 
-import { Calendrier } from './calendrier';
+import { CalendrierComponent } from './calendrier';
 
-describe('Calendrier', () => {
-  let component: Calendrier;
-  let fixture: ComponentFixture<Calendrier>;
+describe('CalendrierComponent', () => {
+  let component: CalendrierComponent;
+  let fixture: ComponentFixture<CalendrierComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Calendrier],
+      imports: [CalendrierComponent],
+      providers: [provideHttpClient()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Calendrier);
+    fixture = TestBed.createComponent(CalendrierComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges(); // 👈 important
   });
 
   it('should create', () => {
