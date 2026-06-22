@@ -1,4 +1,4 @@
-<div class="page-container">
+<div class="page-container calendrier">
   <h1>Calendrier des Girondins</h1>
   <div class="saison-selector">
     <select (change)="onSaisonChange($event)">
@@ -9,7 +9,7 @@
   </div>
   @if (calendrierActif) {
     <div class="page-card calendrier-content">
-      <div [innerHTML]="calendrierActif.acf.content_group.contenu"></div>
+      <div [innerHTML]="calendrierActif.content.rendered"></div>
     </div>
   } @else {
     <p>Chargement...</p>

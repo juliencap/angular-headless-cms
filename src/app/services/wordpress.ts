@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Actualite } from '../interfaces/actualite.interface';
@@ -35,13 +35,13 @@ export class WordpressService {
 
   getCalendriers(): Observable<Calendrier[]> {
     return this.http.get<Calendrier[]>(
-      `${this.apiUrl}/calendrier-girondins?per_page=100&_fields=id,slug,title,acf`,
+      `${this.apiUrl}/calendrier-girondins?per_page=100&_fields=id,slug,title,content`,
     );
   }
 
   getCalendrierBySlug(slug: string): Observable<Calendrier[]> {
     return this.http.get<Calendrier[]>(
-      `${this.apiUrl}/calendrier-girondins?slug=${slug}&_fields=id,slug,title,acf`,
+      `${this.apiUrl}/calendrier-girondins?slug=${slug}&_fields=id,slug,title,content`,
     );
   }
 }

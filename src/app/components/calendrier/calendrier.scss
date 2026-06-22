@@ -27,7 +27,7 @@
     }
   }
 
-  :host ::ng-deep .calendrier-content {
+  .calendrier-content {
     background: var(--color-secondary);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);

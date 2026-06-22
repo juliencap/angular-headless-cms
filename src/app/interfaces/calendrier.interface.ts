@@ -4,10 +4,7 @@ export interface Calendrier {
   title: {
     rendered: string;
   };
-  acf: {
-    content_group: {
-      contenu: string;
-    };
-    saison: number[];
+  content: {
+    rendered: string;
   };
 }

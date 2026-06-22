@@ -1,7 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { WordpressService } from '../../services/wordpress';
-import { Calendrier } from '../../interfaces/calendrier.interface';
 import { SlicePipe } from '@angular/common';
+import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Calendrier } from '../../interfaces/calendrier.interface';
+import { WordpressService } from '../../services/wordpress';
 
 @Component({
   selector: 'app-calendrier',
@@ -9,6 +9,7 @@ import { SlicePipe } from '@angular/common';
   imports: [SlicePipe],
   templateUrl: './calendrier.html',
   styleUrl: './calendrier.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class CalendrierComponent implements OnInit {
   calendriers: Calendrier[] = [];
